@@ -1,0 +1,51 @@
+java configuration
+ 		[go to sudo user]
+1..update my instance 
+	yum install update  (or) yum update
+
+2.. install java
+	yum install java-1.8*
+
+3..check version
+	java -version
+
+4..Find where the java is installed
+	find /usr/lib/jvm/java-1.8* | head -n 3
+
+5..Create a file for java path
+	 vi /etc/profile.d/jdk.sh
+
+6..in editer paste the java path
+	export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64/
+        PATH=$JAVA_HOME/bin:$PATH 
+
+7..save and exit
+8..Reload profile.d/jdk.sh
+	source /etc/profile.d/jdk.sh
+
+9..again check the java path
+	echo $JAVA_HOME
+--------------------------------------------------------------------------------
+
+10..proceed to install jenkins
+	sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+	
+	sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+	
+	amazon-linux-extras install epel
+	
+	yum install epel-release
+	
+	yum install jenkins
+	
+	service jenkins start
+	
+	chkconfig jenkins on
+	
+	service jenkins status
+	
+11..after launching jenkins server check using browser
+	<local ip>:8080
+
+12.. fill admin password
+	cat /var/lib/jenkins/secrets/initialAdminPassword
