@@ -1,0 +1,33 @@
+
+#make dir for maven
+mkdir /opt/maven
+
+# go to that maven path
+cd /opt/maven
+
+#copy link address from maven website
+wget https://dlcdn.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz
+
+gunzip apache-maven-3.8.3-bin.tar.gz
+
+#remove .gz
+gunzip apache-maven-3.8.3-bin.tar
+
+#untar
+
+tar -xvf apache-maven-3.8.3-bin.tar
+
+ls------>apache-maven-3.8.3-bin
+
+ls-------> root folders
+
+#to take path
+
+pwd    /opt/maven/apache-maven-3.8.3
+
+path 
+JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64"
+M2_HOME=/opt/maven/apache-maven-3.8.3
+M2=$M2_HOME/bin
+PATH=$PATH:$JAVA_HOME:$$M2_HOME:$M2:$HOME/bin
+
